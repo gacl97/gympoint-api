@@ -3,6 +3,8 @@ import express, { Request, Response, NextFunction } from 'express';
 
 import AppError from '@shared/errors/AppError';
 
+// Dependency injection
+import '@shared/container';
 // Database connection
 import '@shared/infra/typeorm';
 
