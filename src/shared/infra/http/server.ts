@@ -2,6 +2,9 @@ import express, { Request, Response, NextFunction } from 'express';
 
 import AppError from '@shared/errors/AppError';
 
+// Dependency injection
+import '@shared/container';
+
 const app = express();
 
 app.use(express.json());
