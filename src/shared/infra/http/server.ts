@@ -1,6 +1,10 @@
+import 'reflect-metadata'; // Decorators sintaxe
 import express, { Request, Response, NextFunction } from 'express';
 
 import AppError from '@shared/errors/AppError';
+
+// Database connection
+import '@shared/infra/typeorm';
 
 const app = express();
 
