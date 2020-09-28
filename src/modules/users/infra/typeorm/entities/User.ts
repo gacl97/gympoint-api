@@ -9,6 +9,7 @@ import {
 } from 'typeorm';
 
 import Student from './Student';
+import Instructor from './Instructor';
 
 /* eslint no-shadow: "off" */
 enum UserRoleType {
@@ -46,6 +47,12 @@ class User {
     name: 'id',
   })
   student: Student;
+
+  @OneToOne(() => Instructor)
+  @JoinColumn({
+    name: 'id',
+  })
+  instructor: Instructor;
 
   @CreateDateColumn()
   created_at: Date;
