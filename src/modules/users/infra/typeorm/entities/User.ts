@@ -2,9 +2,13 @@ import {
   Entity,
   PrimaryGeneratedColumn,
   Column,
+  OneToOne,
+  JoinColumn,
   UpdateDateColumn,
   CreateDateColumn,
 } from 'typeorm';
+
+import Student from './Student';
 
 /* eslint no-shadow: "off" */
 enum UserRoleType {
@@ -36,6 +40,12 @@ class User {
     default: UserRoleType.student,
   })
   role: UserRoleType;
+
+  @OneToOne(() => Student)
+  @JoinColumn({
+    name: 'id',
+  })
+  student: Student;
 
   @CreateDateColumn()
   created_at: Date;
