@@ -6,6 +6,8 @@ import {
   CreateDateColumn,
 } from 'typeorm';
 
+import { Exclude } from 'class-transformer';
+
 @Entity('students')
 class Student {
   @PrimaryGeneratedColumn('uuid')
@@ -14,6 +16,7 @@ class Student {
   @Column()
   email: string;
 
+  @Exclude()
   @Column()
   password: string;
 
@@ -35,6 +38,7 @@ class Student {
   @Column()
   cpf: string;
 
+  @Exclude()
   @Column({
     default: 'student',
   })
