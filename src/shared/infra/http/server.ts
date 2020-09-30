@@ -1,7 +1,10 @@
 import 'reflect-metadata'; // Decorators sintaxe
 import express, { Request, Response, NextFunction } from 'express';
+import 'express-async-errors';
 
 import AppError from '@shared/errors/AppError';
+
+import routes from './routes';
 
 // Dependency injection
 import '@shared/container';
@@ -11,6 +14,8 @@ import '@shared/infra/typeorm';
 const app = express();
 
 app.use(express.json());
+
+app.use(routes);
 
 // Middleware to get errors outside routes;
 app.use(
